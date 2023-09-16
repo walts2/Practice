@@ -1,0 +1,60 @@
+/* Add this CSS for styling the login form */
+.login-form {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  
+  .login-form h2 {
+    font-size: 24px;
+    color: #1d1d24;
+    margin-bottom: 20px;
+  }
+  
+  .login-form label {
+    display: block;
+    font-size: 16px;
+    color: #1d1d24;
+    margin-bottom: 10px;
+  }
+  
+  .login-form input[type="text"],
+  .login-form input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  .login-form input[type="submit"] {
+    background: #fd4766;
+    color: #fff;
+    font-size: 18px;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  .login-form input[type="submit"]:hover {
+    background: #ff3c58;
+  }
+  
+  .login-form p {
+    font-size: 14px;
+    color: #1d1d24;
+  }
+  

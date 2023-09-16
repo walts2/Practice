@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang ="en">
+    <head>
+        <title>Login Form</title>
+    </head>
+    <body>
+        <!-- Login Form -->
+        <link rel="stylesheet" href="login.css" />
+        <div class="login-form">
+            <h2>Login</h2>
+            <form id="loginForm">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required><br><br>
+                
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required><br><br>
+                
+                <input type="submit" value="Login">
+            </form>
+            <p id="message"></p>
+        </div>
+    </div>
+</div>
+</body>
+
+<script>
+    var loginAttempts = 0;
+    var maxAttempts = 3;
+
+    // Array to store user credentials
+    var users = [
+        { username: "user1", password: "password1" },
+        { username: "user2", password: "password2" },
+        // Add more user objects as needed
+    ];
+
+    document.getElementById("loginForm").addEventListener("submit", function (event) {
+        event.preventDefault();
+        var username = document.getElementById("username").value;
+        var password = document.getElementById("password").value;
+
+        if (authenticate(username, password)) {
+            // Successful login
+            alert("Login successful!");
+            document.getElementById("username").disabled = true;
+            document.getElementById("password").disabled = true;
+            document.querySelector('input[type="submit"]').disabled = true;
+            window.location.href = "victoria1.html";
+        } else {
+            // Incorrect login
+            loginAttempts++;
+            document.getElementById("message").textContent = "Incorrect username or password. Attempts left: " + (maxAttempts - loginAttempts);
+
+            if (loginAttempts >= maxAttempts) {
+                document.getElementById("message").textContent = "Maximum login attempts reached. Your account is locked.";
+                document.getElementById("username").disabled = true;
+                document.getElementById("password").disabled = true;
+                document.querySelector('input[type="submit"]').disabled = true;
+            } else if (loginAttempts === 0) {
+                document.getElementById("username").disabled = true;
+                document.getElementById("password").disabled = true;
+                document.querySelector('input[type="submit"]').disabled = true;
+            }
+        }
+    });
+
+    // Function to authenticate users
+    function authenticate(username, password) {
+        for (var i = 0; i < users.length; i++) {
+            if (users[i].username === username && users[i].password === password) {
+                return true; // Authentication successful
+            }
+        }
+        return false; // Authentication failed
+    }
+</script>
+</html>
